@@ -1,0 +1,19 @@
+// Copyright Fauna, Inc.
+// SPDX-License-Identifier: MIT-0
+
+CreateFunction({
+  name: "ListStreams",
+  body: Query(
+    Lambda(
+      "",
+      Map(
+        Paginate(Match(Documents("Streams"))),
+        Lambda(
+          ["streamRef"],
+          Call("GetStreamDetails", Var("streamRef"))
+        )
+      )
+    )
+  ),
+  role: Role("ReadStreams")
+})

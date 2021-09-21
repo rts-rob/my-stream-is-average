@@ -1,0 +1,15 @@
+// Copyright Fauna, Inc.
+// SPDX-License-Identifier: MIT-0
+
+CreateFunction({
+  name: "Login",
+  body: Query(
+    Lambda(
+      ["username", "password"],
+      Login(Match(Index("users_by_username"), Var("username")), {
+        password: Var("password")
+      })
+    )
+  ),
+  role: Role("LoginUDF")
+})

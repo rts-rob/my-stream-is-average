@@ -1,0 +1,14 @@
+// Copyright Fauna, Inc.
+// SPDX-License-Identifier: MIT-0
+
+CreateRole({
+  name: "CreateStreamUDF",
+  privileges: [
+    {
+      resource: Collection("Users"),
+      actions: {
+        create: true
+      }
+    }
+  ]
+})

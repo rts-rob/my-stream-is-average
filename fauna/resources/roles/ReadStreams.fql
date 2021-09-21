@@ -1,0 +1,10 @@
+// Copyright Fauna, Inc.
+// SPDX-License-Identifier: MIT-0
+
+CreateRole({
+  name: "ReadStreams",
+  privileges: [
+    { resource: Collection("Users"), actions: { read: true } },
+    { resource: Function("GetRatings"), actions: { call: true } }
+  ]
+})

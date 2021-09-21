@@ -1,0 +1,21 @@
+// Copyright Fauna, Inc.
+// SPDX-License-Identifier: MIT-0
+
+CreateFunction({
+  name: "CreateStream",
+  body: Query(
+    Lambda(
+      ["description", "url"],
+      Create(
+        Collection("Streams"),
+        {
+          data: {
+            description: Var("description"),
+            url: Var("url")
+          }
+        }
+      )
+    )
+  ),
+  role: Role("CreateStreamUDF")
+})
