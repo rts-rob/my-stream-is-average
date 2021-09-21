@@ -1,0 +1,27 @@
+CreateRole({
+  "name": "AuthenticatedUser",
+  "privileges": [{
+    "resource": Function("CreateStream"),
+    "actions": {
+      "call": true
+    }
+  }, {
+    "resource": Function("GetStreamDetails"),
+    "actions": {
+      "call": true
+    }
+  }, {
+    "resource": Function("ListStreams"),
+    "actions": {
+      "call": true
+    }
+  }, {
+    "resource": Function("RateStream"),
+    "actions": {
+      "call": true
+    }
+  }],
+  "membership": [{
+    "resource": Collection("Users")
+  }]
+})

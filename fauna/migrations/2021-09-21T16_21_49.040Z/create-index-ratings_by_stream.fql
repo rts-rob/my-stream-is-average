@@ -1,0 +1,13 @@
+CreateIndex({
+  "name": "ratings_by_stream",
+  "unique": true,
+  "source": Collection("Ratings"),
+  "terms": [{
+    "field": ["data", "rater"]
+  }, {
+    "field": ["data", "stream"]
+  }],
+  "values": [{
+    "field": ["data", "rating"]
+  }]
+})

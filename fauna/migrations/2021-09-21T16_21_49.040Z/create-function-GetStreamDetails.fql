@@ -1,0 +1,15 @@
+CreateFunction({
+  "name": "GetStreamDetails",
+  "body": Query(Lambda(["streamID"], Let([{
+    "stream": Get(Collection("Streams"), Var("streamID"))
+  }, {
+    "ratings": Call("GetRatings", Var("streamID"))
+  }], {
+    "data": {
+      "description": Select(["data", "description"], Var("stream")),
+      "URL": Select(["data", "URL"], Var("stream")),
+      "averageCount": Select(["mehCount"], Var("ratings"))
+    }
+  }))),
+  "role": Role("ReadStreams")
+})

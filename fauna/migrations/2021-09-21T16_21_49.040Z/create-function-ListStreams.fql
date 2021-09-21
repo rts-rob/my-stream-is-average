@@ -1,0 +1,5 @@
+CreateFunction({
+  "name": "ListStreams",
+  "body": Query(Lambda("", Map(Paginate(Match(Documents("Streams"))), Lambda(["streamRef"], Call("GetStreamDetails", Var("streamRef")))))),
+  "role": Role("ReadStreams")
+})

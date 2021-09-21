@@ -1,0 +1,14 @@
+CreateRole({
+  "name": "ReadStreams",
+  "privileges": [{
+    "resource": Collection("Users"),
+    "actions": {
+      "read": true
+    }
+  }, {
+    "resource": Function("GetRatings"),
+    "actions": {
+      "call": true
+    }
+  }]
+})

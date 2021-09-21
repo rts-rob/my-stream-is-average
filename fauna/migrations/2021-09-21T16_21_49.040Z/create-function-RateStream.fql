@@ -1,0 +1,11 @@
+CreateFunction({
+  "name": "RateStream",
+  "body": Query(Lambda(["stream_id", "rating"], Create(Collection("Ratings"), {
+    "data": {
+      "rater": CurrentIdentity(),
+      "rating": Var("rating"),
+      "stream": Ref(Collection("Streams"), Var("stream_id"))
+    }
+  }))),
+  "role": Role("RateStreamUDF")
+})
