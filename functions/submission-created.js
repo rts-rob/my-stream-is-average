@@ -7,12 +7,7 @@ const { Call } = q;
 exports.handler = async (event) => {
   let { description, url } = JSON.parse(event.body).payload.data;
 
-  await createStream(description, url);
-
-  return {
-    statusCode: 200,
-    body: `Stream created: ${description}, ${url}`,
-  };
+  return await createStream(description, url);
 };
 
 const createStream = async (description, url) => {
@@ -20,10 +15,23 @@ const createStream = async (description, url) => {
   
   client = new f.Client({ secret: adminkey }, { headers: { 'X-Fauna-Source': 'my-stream-is-average' } })
 
-  let results = await client.query(
-    Call(
-      "CreateStream",
-      [description, url]
+  
+  try {
+    const result = await client.query(
+      Call(
+        "CreateStream",
+        [description, url]
+      )
     )
-  );
+
+    return {
+      statusCode: 200,
+      body: result
+    }
+  } catch (err) {
+    return {
+      statusCode: 500,
+      body: err
+    }
+  }
 };

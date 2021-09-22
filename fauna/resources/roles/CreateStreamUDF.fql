@@ -5,7 +5,7 @@ CreateRole({
   name: "CreateStreamUDF",
   privileges: [
     {
-      resource: Collection("Users"),
+      resource: Collection("Streams"),
       actions: {
         create: true
       }
