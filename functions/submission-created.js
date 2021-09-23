@@ -26,7 +26,7 @@ const createStream = async (description, url) => {
 
     return {
       statusCode: 200,
-      body: result
+      body: JSON.stringify(result)
     }
   } catch (err) {
     return {
