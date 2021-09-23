@@ -3,7 +3,7 @@ export default function StreamForm() {
     <form
       name="StreamForm"
       method="POST"
-      action="/success"
+      // action="/success"
       // MAGIC HAPPENS HERE
       data-netlify="true"
     >
