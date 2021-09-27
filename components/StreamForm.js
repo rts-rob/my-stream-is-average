@@ -3,10 +3,11 @@ export default function StreamForm() {
     <form
       name="StreamForm"
       method="POST"
-      // action="/success"
+      action="/success"
       // MAGIC HAPPENS HERE
       data-netlify="true"
     >
+      <input type="hidden" name="form-name" value="StreamForm" />
       <p>
         <label htmlFor="description">Description:</label>
       </p>
@@ -30,7 +31,7 @@ export default function StreamForm() {
         />
       </p>
       <p>
-        <input type="submit" value="submit" />
+        <button type="submit">Send</button>
       </p>
     </form>
   )

@@ -1,4 +1,3 @@
-const fetch = require('node-fetch');
 const f = require('faunadb'),
   q = f.query;
 
@@ -7,7 +6,9 @@ const { Call } = q;
 exports.handler = async (event) => {
   let { description, url } = JSON.parse(event.body).payload.data;
 
-  return await createStream(description, url);
+  let results = await createStream(description, url);
+
+  return results;
 };
 
 const createStream = async (description, url) => {
