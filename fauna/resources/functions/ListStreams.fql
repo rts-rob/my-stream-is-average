@@ -7,10 +7,10 @@ CreateFunction({
     Lambda(
       "",
       Map(
-        Paginate(Match(Documents("Streams"))),
+        Paginate(Documents(Collection("Streams"))),
         Lambda(
-          ["streamRef"],
-          Call("GetStreamDetails", Var("streamRef"))
+          "streamRef",
+          Get(Var("streamRef"))
         )
       )
     )

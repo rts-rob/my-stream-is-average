@@ -1,9 +1,0 @@
-CreateRole({
-  "name": "GetRatings",
-  "privileges": [{
-    "resource": Collection("Ratings"),
-    "actions": {
-      "read": true
-    }
-  }]
-})

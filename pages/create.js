@@ -1,19 +1,22 @@
 import Head from 'next/head'
 import Header from '@components/Header'
 import Footer from '@components/Footer'
-import StreamList from '@components/StreamList'
+import StreamForm from '@components/StreamForm'
 
 export default function Home() {
   return (
     <div className="container">
       <Head>
-        <title>My stream is average (I guess)</title>
+        <title>Next.js Starter!</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <main>
-        <Header title="Have some average streams" />
-        <StreamList />
+        <Header title="Hello everybody on stream!" />
+        <StreamForm />
+        <p className="description">
+          Get started by editing <code>pages/index.js</code>
+        </p>
       </main>
 
       <Footer />

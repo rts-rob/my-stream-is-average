@@ -1,9 +1,0 @@
-CreateRole({
-  "name": "RateStreamUDF",
-  "privileges": [{
-    "resource": Collection("Ratings"),
-    "actions": {
-      "create": true
-    }
-  }]
-})

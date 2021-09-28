@@ -1,8 +1,0 @@
-CreateFunction({
-  "name": "GetRatings",
-  "body": Query(Lambda(["streamID"], {
-    "averageCount": 99,
-    "mehCount": 15
-  })),
-  "role": Role("GetRatings")
-})

@@ -1,9 +1,0 @@
-CreateRole({
-  "name": "ClientLogin",
-  "privileges": [{
-    "resource": Function("Login"),
-    "actions": {
-      "call": true
-    }
-  }]
-})
